@@ -7,7 +7,8 @@ variable "region" {
 }
 variable "size" {
 	default = "s-1vcpu-1gb"
-}s
+}
+variable "fingerprint" {}
 
 # Create a new Web Droplet in the fra1 region
 resource "digitalocean_droplet" "web" {
@@ -15,7 +16,7 @@ resource "digitalocean_droplet" "web" {
 	name   = "${var.hostname}"
 	region = "${var.region}"
 	size   = "${var.size}"
-	ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
+	ssh_keys = ["${var.fingerprint}"]
 
 	provisioner "remote-exec" {
 		connection {
