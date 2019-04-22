@@ -7,13 +7,7 @@ variable "region" {
 }
 variable "size" {
 	default = "s-1vcpu-1gb"
-}
-
-# Create a new ssh key
-#resource "digitalocean_ssh_key" "default" {
-#  name       = "${var.hostname}"
-#  public_key = "${file(var.public_key_path)}"
-#}
+}s
 
 # Create a new Web Droplet in the fra1 region
 resource "digitalocean_droplet" "web" {
